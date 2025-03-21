@@ -1,0 +1,77 @@
+version: 1
+proto: predator
+root:
+  name: 'tom'
+  age: 16
+  vip: true
+  profile:
+    id: 12
+    nickname: '昵称'
+    avatar: 'https://xxx.png'
+  labels:
+    - '中二'
+    - 18
+    - true
+    - more:
+        test: 12
+
+# 包含所有的字段的信息
+fields:
+  - path: name
+    type: 'string | null'
+    comment: '名字'
+    doc: |
+      # 名字
+
+      最大长度为6的非空字符串
+  - path: age
+    type: 'number'
+    comment: '年龄'
+    doc: |
+      # 年龄
+
+      0~150
+  - path: vip
+    type: 'boolean'
+    comment: 'VIP'
+    doc: |
+      # VIP
+
+      是否为会员
+  - path: profile
+    type: 'object'
+    comment: '个人信息'
+    doc: |
+      # 个人信息
+  - path: profile.id
+    type: 'number'
+    comment: '用户ID'
+    doc: |
+      # 用户ID
+  - path: profile.nickname
+    type: 'string'
+    comment: '用户昵称'
+    doc: |
+      # 用户昵称
+  - path: profile.avatar
+    type: 'string'
+    comment: '用户头像'
+  - path: labels
+    type: 'object'
+    comment: '标签'
+  - path: labels.[0]
+    type: 'string'
+  - path: labels.[1]
+    type: 'number'
+  - path: labels.[2]
+    type: 'boolean'
+  - path: labels.[3]
+    type: 'object'
+    comment: '第四元素'
+  - path: labels.[3].more
+    type: 'number'
+    comment: '更多'
+  - path: labels.[3].more.test
+    type: 'number'
+    comment: '测试'
+
