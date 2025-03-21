@@ -20,4 +20,7 @@ export default defineConfig({
             directoryAsNamespace: true,
         }),
     ],
+    build: {
+        target: 'es2022'
+    }
 })
